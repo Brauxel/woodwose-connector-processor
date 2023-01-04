@@ -14,6 +14,14 @@ export const hydrateEnv = async () => {
     })
   }
 
+  if (!process.env.GET_WORDPRESS_PRODUCTS_FUNCTION_NAME) {
+    logAndThrowError({
+      name: 'Missing env variables',
+      message:
+        'Please provide GET_WORDPRESS_PRODUCTS_ENDPOINT in environment variables',
+    })
+  }
+
   if (!process.env.WORDPRESS_PRODUCTS_TABLE_NAME) {
     logAndThrowError({
       name: 'Missing env variables',
